@@ -22,7 +22,7 @@ function removeCard(event) {
     deleteCard.remove();
 }
 
-// @todo: Вывести карточки на страницу
+// @todo: Вывести карточки на страниц
 
 function addCard(item) {
     cardTemplate.append(item);
