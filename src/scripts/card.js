@@ -4,7 +4,7 @@ import { closePopup, openImagePopup } from './modal.js';
 export const popupAddNewCard = document.querySelector('.popup_type_new-card');
 export const cardsSection = document.querySelector('.places__list');
 const cardTemplate = document.querySelector('#card-template').content;
-const newPlaceForm = document.forms.newPlace;
+export const newPlaceForm = document.querySelector("form[name=new-place]");
 const placeName = document.querySelector('.popup__input_type_card-name');
 const placeLink = document.querySelector('.popup__input_type_url');
  

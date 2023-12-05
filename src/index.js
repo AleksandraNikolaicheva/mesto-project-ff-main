@@ -1,40 +1,5 @@
-// // @todo: Темплейт карточки
-
-// const cardTemplate = document.querySelector('.places__list');
-// const templateElem = document.querySelector('#card-template').content;
-
-// // @todo: Функция создания карточки
-
-// function createCard (item,removeCard) {
-//     const cardElem = templateElem.querySelector('.places__item').cloneNode(true);
-//     cardElem.querySelector('.card__image').src = item.link;
-//     cardElem.querySelector('.card__image').alt = item.name;
-//     cardElem.querySelector('.card__title').textContent = item.name;
-//     const removeCardButton = cardElem.querySelector('.card__delete-button');
-//     removeCardButton.addEventListener('click',removeCard);
-//     return cardElem;
-// }
-
-// // @todo: Функция удаления карточки
-
-// function removeCard(event) {
-//     const deleteCard = event.target.closest('.places__item');
-//     deleteCard.remove();
-// }
-
-// // @todo: Вывести карточки на страницe
-
-// function addCard(item) {
-//     cardTemplate.append(item);
-// }
-
-// initialCards.forEach(function(item) {
-//     const createdCard = createCard(item,removeCard);
-//     addCard(createdCard);
-// })
-
 import './pages/index.css';
-import { addCards, addNewCard, popupAddNewCard } from './scripts/card.js';
+import { addCards, addNewCard, popupAddNewCard, newPlaceForm } from './scripts/card.js';
 import { openPopup, closePopup, openPopupByButton } from './scripts/modal.js';
 
 addCards();
@@ -48,8 +13,7 @@ const addButton = document.querySelector('.profile__add-button');
 
 const profileName = document.querySelector('.profile__title');
 const profileDescription = document.querySelector('.profile__description');
-// const profileForm = document.forms.editProfile;
-const profileForm = document.querySelector('popup__form');
+const profileForm = document.querySelector("form[name=edit-profile]");
 const profileFormName = document.querySelector('.popup__input_type_name');
 const profileFormDescription = document.querySelector('.popup__input_type_description');
 
@@ -73,7 +37,7 @@ function changeProfile(evt) {
 }
 
 profileForm.addEventListener('submit', changeProfile);
-newPlace.addEventListener('submit', addNewCard);
+newPlaceForm.addEventListener('submit', addNewCard);
 openPopupByButton(addButton, popupAddNewCard);
 
 // Закрыть при клике на темный фон
