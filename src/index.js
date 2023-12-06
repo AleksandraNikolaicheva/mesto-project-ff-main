@@ -1,8 +1,13 @@
 import './pages/index.css';
-import { addCards, addNewCard, popupAddNewCard, newPlaceForm } from './scripts/card.js';
-import { openPopup, closePopup, openPopupByButton } from './scripts/modal.js';
+import { initialCards } from './scripts//cards.js';
+import { openPopup, closePopup, openPopupByButton,openImagePopup } from './scripts/modal.js';
+import { createCard,deleteCard, likeCard} from './scripts/card.js';
 
-addCards();
+const popupAddNewCard = document.querySelector('.popup_type_new-card');
+const cardsSection = document.querySelector('.places__list');
+const newPlaceForm = document.querySelector("form[name=new-place]");
+const placeName = document.querySelector('.popup__input_type_card-name');
+const placeLink = document.querySelector('.popup__input_type_url');
 
 const popups = document.querySelectorAll('.popup');
 
@@ -16,6 +21,31 @@ const profileDescription = document.querySelector('.profile__description');
 const profileForm = document.querySelector("form[name=edit-profile]");
 const profileFormName = document.querySelector('.popup__input_type_name');
 const profileFormDescription = document.querySelector('.popup__input_type_description');
+
+
+//Вывод карточки на страницу
+function addCards() {
+  initialCards.forEach(function (place) {
+    const card = createCard(place, deleteCard, likeCard,openImagePopup);
+    cardsSection.appendChild(card);
+  });
+}
+ 
+//Добавление новой карточки
+function addNewCard(evt) {
+  evt.preventDefault();
+  const newCard = {
+    name: placeName.value,
+    link: placeLink.value,
+  };
+ 
+  const newPlaceCard = createCard(newCard, deleteCard, likeCard,openImagePopup);
+  cardsSection.insertBefore(newPlaceCard, cardsSection.append(newCard));
+  newPlaceForm.reset();
+  closePopup(popupAddNewCard);
+}
+
+addCards();
 
 function setProfileFormValues() {
   profileFormName.value = profileName.textContent;

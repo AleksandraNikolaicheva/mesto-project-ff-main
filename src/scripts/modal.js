@@ -1,6 +1,4 @@
-let escCallback;
-
-export const popupImage = document.querySelector('.popup_type_image');
+const popupImage = document.querySelector('.popup_type_image');
 const popupImageImage = popupImage.querySelector('.popup__image');
 const popupImageCaption = popupImage.querySelector('.popup__caption');
 
@@ -9,21 +7,19 @@ export function openPopup(popup) {
   setTimeout(() => {
     popup.classList.add("popup_is-opened");
   }, 10);
-  escCallback = function (evt) {
-    closePopupEsc(evt, popup);
-  };
-  document.addEventListener('keydown', escCallback);
+  document.addEventListener('keydown', closeByEsc);
 }
  
 export function closePopup(popup) {
   popup.classList.remove('popup_is-opened');
-  document.removeEventListener('keydown', escCallback);
+  document.removeEventListener('keydown', closeByEsc);
 }
 
 // Закрытие Esc
-function closePopupEsc(evt, popup) {
+function closeByEsc(evt) {
   if (evt.key === 'Escape') {
-    closePopup(popup);
+    const openedPopup = document.querySelector('.popup_is-opened');
+    closePopup(openedPopup);
   }
 }
  
