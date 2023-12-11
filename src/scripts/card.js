@@ -28,4 +28,3 @@ export function deleteCard(evt) {
 export function likeCard(evt) {
   evt.target.classList.toggle('card__like-button_is-active');
 }
-
