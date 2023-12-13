@@ -20,17 +20,17 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <div
+          <img
             class="profile__image"
-            style="background-image: url(<%=require('./images/avatar.jpg')%>)"
-        </div>
+            src="<%=require('./images/avatar.jpg')%>"
+          >
             <div class="profile__image_overlay">
               <img
                 class="profile__image_overlay-icon"
                 src="<%=require('./images/edit-icon.svg')%>"
               />
             </div>
-          </div>
+          </img>
           <div class="profile__info">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
             <button class="profile__edit-button" type="button"></button>
@@ -114,7 +114,6 @@
                 class="popup__input popup__input_type_url"
                 placeholder="Ссылка на картинку"
                 required
-                minlength="10"
               />
               <span class="url-input-error popup__input-error"></span>
             </label>

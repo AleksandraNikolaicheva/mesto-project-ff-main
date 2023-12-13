@@ -69,9 +69,6 @@ Promise.all([getProfileDataApi(), getInitialCardsApi()])
     result[1].forEach(function (cardData) {
       placesList.append(createCards(cardData, deleteCard, likeCard, clickImage, currentUserId));
     });
-    result[1].forEach(function (cardData) {
-      placesList.append(createCards(cardData, deleteCard, likeCard, clickImage, currentUserId));
-    });
   })
   .catch(err => {
     console.log(err);

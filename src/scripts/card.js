@@ -22,7 +22,7 @@ export function createCards(cardData, deleteCard, likeCard, clickImage, userID) 
   cardItem.dataset.imgId = cardData._id;
   cardLikes.textContent = cardData.likes.length;
 
-  let isLiked = cardData.likes.some(like => like._id === userID);
+  const isLiked = cardData.likes.some(like => like._id === userID);
   if (isLiked) {
     likeButton.classList.add('card__like-button_is-active');
   }
